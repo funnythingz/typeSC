@@ -5,36 +5,50 @@ module.exports = (grunt)->
     uglify: {
       build: {
         src: 'src/<%= pkg.name %>.js'
-        dest: 'build/<%= pkg.name %>.js'
+        dest: 'public/<%= pkg.name %>.min.js'
+      }
+    }
+
+    compass: {
+      dist: {
+        options: {
+          config: 'src/sass/config.rb'
+        }
+      }
+    }
+
+    cssmin: {
+      top: {
+        src: ['public/style.css']
+        dest: 'public/style.min.css'
+      }
+    }
+
+    typescript: {
+      base: {
+        src: ['src/*.ts']
+        dest: 'public/hoge.js'
       }
     }
 
     watch: {
-      sass: {
+      js: {
+        files: ['src/*.ts']
+        tasks: ['typescript', 'uglify']
+      }
+      css: {
         files: ['src/sass/*.scss']
-        tasks: ['sass']
+        tasks: ['compass']
       }
     }
 
-    sass: {
-      dist: {
-        options: {
-          style: 'compressed'
-          check: true
-          compass: false
-          lineNumbers: true
-        }
-        files: {
-          './hoge.css': 'src/sass/*.scss'
-        }
-      }
-
-    }
-
-  });
+  })
 
   grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-compass')
+  grunt.loadNpmTasks('grunt-contrib-mincss')
+  grunt.loadNpmTasks('grunt-typescript')
   grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadTasks('tasks')
 
-  grunt.registerTask('default', ['uglify'])
+  grunt.registerTask('default', ['watch'])
