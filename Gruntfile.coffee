@@ -4,41 +4,39 @@ module.exports = (grunt)->
 
     uglify: {
       build: {
-        src: 'src/<%= pkg.name %>.js'
-        dest: 'public/<%= pkg.name %>.min.js'
+        files: 'public/typos.min.js': ['public/typos.js']
       }
     }
 
     compass: {
       dist: {
         options: {
-          config: 'src/sass/config.rb'
+          config: 'config.rb'
         }
-      }
-    }
-
-    cssmin: {
-      top: {
-        src: ['public/style.css']
-        dest: 'public/style.min.css'
       }
     }
 
     typescript: {
       base: {
-        src: ['src/*.ts']
-        dest: 'public/hoge.js'
+        src: ['src/**/*.ts']
+        dest: 'public/typos.js'
       }
     }
 
     watch: {
-      js: {
-        files: ['src/*.ts']
+      ts: {
+        files: ['src/**/*.ts']
         tasks: ['typescript', 'uglify']
+        options: {
+          atBegin: true
+        }
       }
       css: {
-        files: ['src/sass/*.scss']
+        files: ['sass/**/*.scss']
         tasks: ['compass']
+        options: {
+          atBegin: true
+        }
       }
     }
 
@@ -46,7 +44,6 @@ module.exports = (grunt)->
 
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-compass')
-  grunt.loadNpmTasks('grunt-contrib-mincss')
   grunt.loadNpmTasks('grunt-typescript')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadTasks('tasks')
