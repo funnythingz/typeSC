@@ -16,6 +16,7 @@ Grunt `~0.4.0`
 % npm install grunt-contrib-compass
 % npm install grunt-contrib-concat
 % npm install grunt-contrib-connect
+% npm install grunt-contrib-clean
 ```
 
 ### Directory
