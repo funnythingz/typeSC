@@ -15,18 +15,19 @@ Grunt `~0.4.0`
 % npm install grunt-contrib-uglify
 % npm install grunt-contrib-compass
 % npm install grunt-contrib-concat
+% npm install grunt-contrib-connect
 ```
 
 ### Directory
 
-> Dev
+#### Dev
 
 ```shell
 .ts ... src/**/*.ts
 .scss ... src/sass/**/*.scss
 ```
 
-> publish
+#### publish
 
 ```shell
 .js ... public/typos.js, public/typos.min.js
@@ -35,8 +36,18 @@ Grunt `~0.4.0`
 
 ### Command
 
+#### watch (compile & build)
+
 ```shell
 % grunt watch
+```
+
+#### server
+```shell
+% grunt server
+Running "connect:server" (connect) task
+Waiting forever...
+Started connect web server on localhost:8000.
 ```
 
 &copy; funnythingz
