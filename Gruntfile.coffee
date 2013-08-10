@@ -2,43 +2,39 @@ module.exports = (grunt)->
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
 
-    uglify: {
-      build: {
+    uglify:
+      build:
         files: 'public/typos.min.js': ['public/typos.js']
-      }
-    }
 
-    compass: {
-      dist: {
-        options: {
-          config: 'config.rb'
-        }
-      }
-    }
-
-    typescript: {
-      base: {
-        src: ['src/**/*.ts']
+    concat:
+      dist:
+        src: ['src/**/*.js']
         dest: 'public/typos.js'
-      }
-    }
 
-    watch: {
-      ts: {
+      options:
+        separator: ';'
+
+    typescript:
+      base:
+        src: ['src/**/*.ts']
+
+    compass:
+      dist:
+        options:
+          config: 'config.rb'
+
+    watch:
+      ts:
         files: ['src/**/*.ts']
-        tasks: ['typescript', 'uglify']
-        options: {
+        tasks: ['typescript', 'concat', 'uglify']
+        options:
           atBegin: true
-        }
-      }
-      css: {
+
+      css:
         files: ['sass/**/*.scss']
         tasks: ['compass']
-        options: {
+        options:
           atBegin: true
-        }
-      }
-    }
 
   })
 
@@ -46,6 +42,7 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-typescript')
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadTasks('tasks')
 
   grunt.registerTask('default', ['watch'])

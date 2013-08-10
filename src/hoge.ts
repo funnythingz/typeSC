@@ -1,3 +1,5 @@
+/// <reference path="name.ts" />
+
 module TYPOS {
 
   export class Hoge {
@@ -12,13 +14,4 @@ module TYPOS {
     }
   }
 
-  export class Name<T> {
-    public first: T;
-    public last: T;
-
-    constructor(first: T, last: T) {
-      this.first = first;
-      this.last = last;
-    }
-  }
 }
