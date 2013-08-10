@@ -36,13 +36,22 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
+    connect:
+      server:
+        options:
+          port: 8000
+          base: 'public'
+          keepalive: true
+
   })
 
-  grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-typescript')
-  grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadTasks('tasks')
 
   grunt.registerTask('default', ['watch'])
+  grunt.registerTask('server', ['connect'])
