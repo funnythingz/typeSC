@@ -26,7 +26,7 @@ module.exports = (grunt)->
     watch:
       ts:
         files: ['src/**/*.ts']
-        tasks: ['typescript', 'concat', 'uglify']
+        tasks: ['typescript', 'concat', 'uglify', 'clean']
         options:
           atBegin: true
 
@@ -35,6 +35,8 @@ module.exports = (grunt)->
         tasks: ['compass']
         options:
           atBegin: true
+
+    clean: ['src/**/*.js']
 
     connect:
       server:
@@ -51,6 +53,7 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadTasks('tasks')
 
   grunt.registerTask('default', ['watch'])
