@@ -7,16 +7,18 @@ typos
 
 Grunt `~0.4.0`
 
+grunt-typescript
+grunt-contrib-watch
+grunt-contrib-uglify
+grunt-contrib-compass
+grunt-contrib-concat
+grunt-contrib-connect
+grunt-contrib-clean
+
 > Install Grunt Plugin
 
 ```shell
-% npm install grunt-typescript
-% npm install grunt-contrib-watch
-% npm install grunt-contrib-uglify
-% npm install grunt-contrib-compass
-% npm install grunt-contrib-concat
-% npm install grunt-contrib-connect
-% npm install grunt-contrib-clean
+% npm install
 ```
 
 ### Directory
