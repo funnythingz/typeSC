@@ -54,7 +54,6 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadNpmTasks('grunt-contrib-clean')
-  grunt.loadTasks('tasks')
 
   grunt.registerTask('default', ['watch'])
   grunt.registerTask('server', ['connect'])
