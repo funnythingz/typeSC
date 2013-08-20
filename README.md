@@ -10,7 +10,7 @@ Grunt `~0.4.0`
 > Install Grunt Plugin
 
 ```shell
-% npm install grunt-typescript
+% npm install
 ```
 
 or
