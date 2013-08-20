@@ -11,6 +11,12 @@ Grunt `~0.4.0`
 
 ```shell
 % npm install grunt-typescript
+```
+
+or
+
+```shell
+% npm install grunt-typescript
 % npm install grunt-contrib-watch
 % npm install grunt-contrib-uglify
 % npm install grunt-contrib-compass
