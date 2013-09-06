@@ -4,12 +4,12 @@ module.exports = (grunt)->
 
     uglify:
       build:
-        files: 'public/typos.min.js': ['public/typos.js']
+        files: 'public/typesc.min.js': ['public/typesc.js']
 
     concat:
       dist:
         src: ['src/**/*.js']
-        dest: 'public/typos.js'
+        dest: 'public/typesc.js'
 
       options:
         separator: ';'

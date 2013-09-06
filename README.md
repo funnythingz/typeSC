@@ -1,4 +1,4 @@
-typos
+typeSC
 =====
 
 > This is TypeScript & Sass/Compass Project Template.
@@ -33,8 +33,8 @@ Grunt `~0.4.0`
 #### publish
 
 ```shell
-.js ... public/typos.js, public/typos.min.js
-.css ... public/css/typos.css
+.js ... public/typesc.js, public/typesc.min.js
+.css ... public/css/typesc.css
 ```
 
 ### Command
