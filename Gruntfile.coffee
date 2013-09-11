@@ -3,8 +3,11 @@ module.exports = (grunt)->
     pkg: grunt.file.readJSON('package.json')
 
     uglify:
-      build:
+      typesc:
         files: 'public/typesc.min.js': ['public/typesc.js']
+
+      lib:
+        files: 'public/lib.min.js': ['public/lib.js']
 
     concat:
       typesc:
@@ -12,7 +15,7 @@ module.exports = (grunt)->
         dest: 'public/typesc.js'
 
       lib:
-        src: ['lib/*.js']
+        src: ['lib/*/index.js']
         dest: 'public/lib.js'
 
       options:
