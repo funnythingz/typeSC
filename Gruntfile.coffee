@@ -7,9 +7,13 @@ module.exports = (grunt)->
         files: 'public/typesc.min.js': ['public/typesc.js']
 
     concat:
-      dist:
-        src: ['src/**/*.js']
+      typesc:
+        src: ['src/typesc/*.js']
         dest: 'public/typesc.js'
+
+      lib:
+        src: ['lib/*.js']
+        dest: 'public/lib.js'
 
       options:
         separator: ';'
