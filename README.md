@@ -27,7 +27,7 @@ Grunt `~0.4.0`
 % npm install
 ```
 
-> Install underscore.js & zepto.js of `lib` directory
+> [option] Install underscore.js & zepto.js of `lib` directory
 
 ```shell
 % bower install
