@@ -1,15 +1,7 @@
 {
   "name": "typeSC",
-  "version": "0.1.0",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "components",
-    "test",
-    "docs"
-  ],
   "dependencies": {
     "underscore": "https://github.com/jashkenas/underscore/raw/master/underscore.js",
-    "d3": "https://github.com/mbostock/d3/raw/master/d3.js"
+    "zepto": "https://github.com/madrobby/zepto/raw/master/src/zepto.js"
   }
 }

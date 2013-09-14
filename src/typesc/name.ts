@@ -1,4 +1,4 @@
-module TYPOS {
+module TYPESC {
 
   export class Name<T> {
     public first: T;
