@@ -5,6 +5,12 @@ typeSC
 
 ## Getting Started
 
+> Install bower
+
+```shell
+% npm install -g bower
+```
+
 Grunt `~0.4.0`
 
 > Install Grunt Plugin
@@ -19,6 +25,12 @@ Grunt `~0.4.0`
 
 ```shell
 % npm install
+```
+
+> Install underscore.js & zepto.js of `lib` directory
+
+```shell
+% bower install
 ```
 
 ### Directory
