@@ -21,13 +21,14 @@ Grunt `~0.4.0`
 * grunt-contrib-compass
 * grunt-contrib-concat
 * grunt-contrib-connect
+* grunt-contrib-copy
 * grunt-contrib-clean
 
 ```shell
 % npm install
 ```
 
-> [option] Install underscore.js & zepto.js of `lib` directory
+> [option] Install jquery of `lib` directory
 
 ```shell
 % bower install

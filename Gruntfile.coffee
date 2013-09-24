@@ -6,20 +6,19 @@ module.exports = (grunt)->
       typesc:
         files: 'public/typesc.min.js': ['public/typesc.js']
 
-      lib:
-        files: 'public/lib.min.js': ['public/lib.js']
-
     concat:
       typesc:
         src: ['src/typesc/*.js']
         dest: 'public/typesc.js'
 
-      lib:
-        src: ['lib/*/index.js']
-        dest: 'public/lib.js'
-
       options:
         separator: ';'
+
+    copy:
+      lib: {
+        src: 'lib/jquery/jquery.min.js'
+        dest: 'public/jquery.min.js'
+      }
 
     typescript:
       base:
@@ -60,7 +59,8 @@ module.exports = (grunt)->
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-copy')
   grunt.loadNpmTasks('grunt-contrib-clean')
 
-  grunt.registerTask('default', ['typescript', 'concat', 'uglify', 'clean', 'compass'])
+  grunt.registerTask('default', ['typescript', 'concat', 'copy', 'uglify', 'clean', 'compass'])
   grunt.registerTask('server', ['connect'])

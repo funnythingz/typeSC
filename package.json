@@ -1,5 +1,5 @@
 {
-  "name": "typos",
+  "name": "typeSC",
   "version": "0.0.0",
   "description": "TypeScript & sass/compass Project",
   "author": "funnythingz",
@@ -13,6 +13,7 @@
     "grunt-contrib-sass": "~0.4.1",
     "grunt-contrib-compass": "~0.5.0",
     "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-connect": "~0.3.0"
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-copy": ""
   }
 }
