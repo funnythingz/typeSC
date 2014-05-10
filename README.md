@@ -1,37 +1,14 @@
 typeSC
 =====
 
-> This is TypeScript & Sass/Compass Project Template.
+This is TypeScript & Sass/Compass Project Template.
 
 ## Getting Started
 
-> Install bower
-
-```shell
-% npm install -g bower
-```
-
-Grunt `~0.4.0`
-
-> Install Grunt Plugin
-
-* grunt-typescript
-* grunt-contrib-watch
-* grunt-contrib-uglify
-* grunt-contrib-compass
-* grunt-contrib-concat
-* grunt-contrib-connect
-* grunt-contrib-copy
-* grunt-contrib-clean
+Install Grunt Plugin
 
 ```shell
 % npm install
-```
-
-> [option] Install jquery of `lib` directory
-
-```shell
-% bower install
 ```
 
 ### Directory
@@ -39,20 +16,28 @@ Grunt `~0.4.0`
 #### Dev
 
 ```shell
-.ts ... src/**/*.ts
-.scss ... src/sass/**/*.scss
+src
+├── html
+│   └── index.html
+├── scss
+│   └── style.scss
+└── ts
+    └── oop.ts
 ```
 
-#### publish
+#### build
 
 ```shell
-.js ... public/typesc.js, public/typesc.min.js
-.css ... public/css/typesc.css
+build
+├── app.js
+├── app.min.js
+├── index.html
+└── style.css
 ```
 
 ### Command
 
-#### compile & compress
+#### compile build
 
 ```shell
 % grunt
