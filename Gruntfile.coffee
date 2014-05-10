@@ -1,28 +1,52 @@
 module.exports = (grunt)->
+
+  grunt.loadNpmTasks('grunt-contrib-compass')
+  grunt.loadNpmTasks('grunt-typescript')
+  grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-connect')
+  grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-copy')
+
+  grunt.registerTask('default', ['typescript', 'concat', 'uglify', 'clean', 'copy', 'compass'])
+  grunt.registerTask('server', ['connect'])
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
 
     uglify:
-      typesc:
-        files: 'public/typesc.min.js': ['public/typesc.js']
+      dist:
+        files: 'build/app.min.js': ['build/app.js']
 
     concat:
-      typesc:
-        src: ['src/typesc/*.js']
-        dest: 'public/typesc.js'
+      hackleview:
+        src: ['src/ts/**/*.js']
+        dest: 'build/app.js'
 
       options:
         separator: ';'
 
     copy:
-      lib: {
-        src: 'lib/jquery/jquery.min.js'
-        dest: 'public/jquery.min.js'
-      }
+      html:
+        files: [{
+          expand: true
+          cwd: 'src/html/'
+          src: ['**/*.html']
+          dest: 'build/'
+        }]
+
+      assets:
+        files: [{
+          expand: true
+          cwd: 'assets/imgs/'
+          src: ['**/*.png', '**/*.jpg']
+          dest: 'build/imgs/'
+        }]
 
     typescript:
       base:
-        src: ['src/**/*.ts']
+        src: ['src/ts/**/*.ts', 'tests/**/*.ts']
         options:
           sourceMap: false
 
@@ -33,36 +57,30 @@ module.exports = (grunt)->
 
     watch:
       typescript:
-        files: ['src/**/*.ts']
-        tasks: ['typescript', 'concat', 'uglify', 'clean']
+        files: ['src/ts/**/*.ts', 'tests/**/*.ts']
+        tasks: ['typescript', 'concat', 'uglify', 'clean', 'copy']
         options:
           atBegin: true
 
       css:
-        files: ['sass/**/*.scss']
+        files: ['src/scss/**/*.scss']
         tasks: ['compass']
         options:
           atBegin: true
 
-    clean: ['src/**/*.js']
+      html:
+        files: ['src/html/**/*.html']
+        tasks: ['copy:html']
+        options:
+          atBegin: true
+
+    clean: ['src/ts/**/*.js', 'build/hbs/**/*.hbs']
 
     connect:
       server:
         options:
           port: 8000
-          base: 'public'
+          base: 'build'
           keepalive: true
 
   })
-
-  grunt.loadNpmTasks('grunt-contrib-compass')
-  grunt.loadNpmTasks('grunt-typescript')
-  grunt.loadNpmTasks('grunt-contrib-concat')
-  grunt.loadNpmTasks('grunt-contrib-uglify')
-  grunt.loadNpmTasks('grunt-contrib-watch')
-  grunt.loadNpmTasks('grunt-contrib-connect')
-  grunt.loadNpmTasks('grunt-contrib-copy')
-  grunt.loadNpmTasks('grunt-contrib-clean')
-
-  grunt.registerTask('default', ['typescript', 'concat', 'copy', 'uglify', 'clean', 'compass'])
-  grunt.registerTask('server', ['connect'])
