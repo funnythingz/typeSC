@@ -2,14 +2,13 @@ module.exports = (grunt)->
 
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-typescript')
-  grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-watch')
   grunt.loadNpmTasks('grunt-contrib-connect')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-copy')
 
-  grunt.registerTask('default', ['typescript', 'concat', 'uglify', 'clean', 'copy', 'compass'])
+  grunt.registerTask('default', ['clean', 'typescript', 'uglify', 'copy', 'compass'])
   grunt.registerTask('server', ['connect'])
 
   grunt.initConfig({
@@ -18,14 +17,6 @@ module.exports = (grunt)->
     uglify:
       dist:
         files: 'build/app.min.js': ['build/app.js']
-
-    concat:
-      hackleview:
-        src: ['src/ts/**/*.js']
-        dest: 'build/app.js'
-
-      options:
-        separator: ';'
 
     copy:
       html:
@@ -46,7 +37,14 @@ module.exports = (grunt)->
 
     typescript:
       base:
-        src: ['src/ts/**/*.ts', 'tests/**/*.ts']
+        src: ['src/ts/**/*.ts']
+        dest: 'build/app.js'
+        options:
+          sourceMap: false
+
+      test:
+        src: ['tests/**/*.ts']
+        dest: 'tests/test.js'
         options:
           sourceMap: false
 
@@ -58,7 +56,7 @@ module.exports = (grunt)->
     watch:
       typescript:
         files: ['src/ts/**/*.ts', 'tests/**/*.ts']
-        tasks: ['typescript', 'concat', 'uglify', 'clean', 'copy']
+        tasks: ['clean', 'typescript', 'uglify', 'copy']
         options:
           atBegin: true
 
@@ -74,7 +72,7 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
-    clean: ['src/ts/**/*.js']
+    clean: ['build/*']
 
     connect:
       server:
