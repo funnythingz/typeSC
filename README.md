@@ -1,7 +1,6 @@
-typeSC
-=====
+# typeSC
 
-This is TypeScript & Sass/Compass Project Template.
+This is Project Template for TypeScript & Sass/Compass.
 
 ## Getting Started
 
