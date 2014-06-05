@@ -1,5 +1,7 @@
 # typeSC
 
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
 This is Project Template for TypeScript & Sass/Compass.
 
 ## Getting Started
