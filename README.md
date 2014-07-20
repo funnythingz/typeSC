@@ -1,5 +1,7 @@
 # typeSC
 
+[![GitHub version](https://badge.fury.io/gh/funnythingz%2FtypeSC.svg)](http://badge.fury.io/gh/funnythingz%2FtypeSC)
+[![Build Status](https://travis-ci.org/funnythingz/typeSC.svg)](https://travis-ci.org/funnythingz/typeSC)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 This is Project Template for TypeScript & Sass/Compass.
