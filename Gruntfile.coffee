@@ -2,8 +2,8 @@ module.exports = (grunt)->
 
   require('load-grunt-tasks')(grunt)
 
-  grunt.registerTask('default', ['clean', 'typescript', 'uglify', 'copy', 'compass'])
-  grunt.registerTask('server', ['connect'])
+  grunt.registerTask('build', ['clean', 'typescript', 'uglify', 'copy', 'compass'])
+  grunt.registerTask('default', ['build', 'connect', 'open', 'watch'])
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
@@ -68,11 +68,15 @@ module.exports = (grunt)->
 
     clean: ['build/*']
 
+    open:
+      dist:
+        path: 'http://localhost:8000'
+
     connect:
-      server:
+      livereload:
         options:
+          hostname: '*'
           port: 8000
           base: 'build'
-          keepalive: true
 
   })
