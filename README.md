@@ -40,24 +40,16 @@ build
 
 ### Command
 
-#### compile build
+#### compile build & open & watch
 
 ```shell
 % grunt
 ```
 
-#### watch
+#### build only
 
 ```shell
-% grunt watch
-```
-
-#### server
-```shell
-% grunt server
-Running "connect:server" (connect) task
-Waiting forever...
-Started connect web server on localhost:8000.
+% grunt build
 ```
 
 &copy; funnythingz
