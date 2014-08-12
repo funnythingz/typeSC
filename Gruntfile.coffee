@@ -78,5 +78,6 @@ module.exports = (grunt)->
           hostname: '*'
           port: 8000
           base: 'build'
+          livereload: true
 
   })
