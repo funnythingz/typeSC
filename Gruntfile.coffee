@@ -52,19 +52,19 @@ module.exports = (grunt)->
         files: ['src/ts/**/*.ts', 'tests/**/*.ts']
         tasks: ['clean', 'typescript', 'uglify', 'copy']
         options:
-          atBegin: true
+          atBegin: false
 
       css:
         files: ['src/scss/**/*.scss']
         tasks: ['compass']
         options:
-          atBegin: true
+          atBegin: false
 
       html:
         files: ['src/html/**/*.html']
         tasks: ['copy:html']
         options:
-          atBegin: true
+          atBegin: false
 
     clean: ['build/*', 'tests/**/*.js']
 
