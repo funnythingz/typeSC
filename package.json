@@ -14,6 +14,7 @@
     "grunt-contrib-compass": "",
     "grunt-contrib-connect": "",
     "grunt-contrib-copy": "",
+    "grunt-tsd": "",
     "grunt-open": "",
     "testem": "~0.6.2",
     "chai": "~1.9.0"

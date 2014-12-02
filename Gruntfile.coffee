@@ -80,4 +80,10 @@ module.exports = (grunt)->
           base: 'build'
           livereload: true
 
+    tsd:
+      refresh:
+        command: reinstall
+        latest: true
+        config: 'tsd.json'
+
   })
