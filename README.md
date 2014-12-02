@@ -14,6 +14,14 @@ Install Grunt Plugin
 % npm install
 ```
 
+Install definition files from tsd
+
+```
+% tsd query chai -a -s install
+% tsd query mocha -a -s install
+% tsd query should -a -s install
+```
+
 ### Directory
 
 #### Dev
@@ -38,7 +46,7 @@ build
 └── style.css
 ```
 
-### Command
+### grunt task
 
 #### compile build & open & watch
 
@@ -51,5 +59,21 @@ build
 ```shell
 % grunt build
 ```
+
+### Test
+
+testem install
+
+```
+% sudo npm install -g testem
+```
+
+run
+
+```
+% testem
+```
+
+access to `http://localhost:7357/`
 
 &copy; funnythingz

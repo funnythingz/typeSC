@@ -3,7 +3,7 @@ module.exports = (grunt)->
   require('load-grunt-tasks')(grunt)
 
   grunt.registerTask('build', ['clean', 'typescript', 'uglify', 'copy', 'compass'])
-  grunt.registerTask('default', ['connect', 'open', 'watch'])
+  grunt.registerTask('default', ['build', 'connect', 'open', 'watch'])
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
@@ -66,7 +66,7 @@ module.exports = (grunt)->
         options:
           atBegin: true
 
-    clean: ['build/*']
+    clean: ['build/*', 'tests/**/*.js']
 
     open:
       dist:
@@ -82,7 +82,7 @@ module.exports = (grunt)->
 
     tsd:
       refresh:
-        command: reinstall
+        command: 'reinstall'
         latest: true
         config: 'tsd.json'
 

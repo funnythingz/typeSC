@@ -1,12 +1,8 @@
-/// <reference path="../definitions/mocha.d.ts" />
-/// <reference path="../definitions/chai.d.ts" />
-/// <reference path="../definitions/should.d.ts" />
-
 /// <reference path="../src/ts/oop.ts" />
 
 module OOP {
 
-    chai.should();
+    var expect = chai.expect;
 
     describe("OOP", function() {
 
@@ -15,19 +11,19 @@ module OOP {
         var clazz: Clazz = new Clazz(id);
 
         it("id to instanceof `ID`", function() {
-            id.should.be.instanceof(ID);
+            expect(id).to.be.instanceof(ID);
         });
 
         it("clazz has `ID`", function() {
-            clazz.should.be.haveOwnProperty('id');
+            expect(clazz).to.be.haveOwnProperty('id');
         });
 
         it("clazz has id value of ID", function() {
-            clazz.id.getValue().should.be.equal(id.getValue());
+            expect(clazz.id.getValue()).to.be.equal(id.getValue());
         });
 
         it("clazz has not id value of ID", function() {
-            clazz.id.getValue().should.be.not.equal(fakeId.getValue());
+            expect(clazz.id.getValue()).to.be.not.equal(fakeId.getValue());
         });
 
     });
