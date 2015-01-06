@@ -3,7 +3,7 @@ module.exports = (grunt)->
   require('load-grunt-tasks')(grunt)
 
   grunt.registerTask('build', ['clean', 'typescript', 'uglify', 'copy', 'compass'])
-  grunt.registerTask('default', ['build', 'connect', 'open', 'watch'])
+  grunt.registerTask('default', ['build', 'connect', 'watch'])
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json')
@@ -48,37 +48,32 @@ module.exports = (grunt)->
           config: 'config.rb'
 
     watch:
+      options:
+        livereload: true
+        atBegin: false
+
       typescript:
         files: ['src/ts/**/*.ts', 'tests/**/*.ts']
         tasks: ['clean', 'typescript', 'uglify', 'copy']
-        options:
-          atBegin: false
 
       css:
         files: ['src/scss/**/*.scss']
         tasks: ['compass']
-        options:
-          atBegin: false
 
       html:
         files: ['src/html/**/*.html']
         tasks: ['copy:html']
-        options:
-          atBegin: false
 
     clean: ['build/*', 'tests/**/*.js']
 
-    open:
-      dist:
-        path: 'http://localhost:8000'
-
     connect:
-      livereload:
+      server:
         options:
           hostname: '*'
           port: 8000
           base: 'build'
           livereload: true
+          open: true
 
     tsd:
       refresh:
